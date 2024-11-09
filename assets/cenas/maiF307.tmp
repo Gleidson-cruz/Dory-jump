@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhsuc4tfmej86"]
+
+[ext_resource type="PackedScene" uid="uid://dk7ma286ifbhw" path="res://assets/cenas/plataforma_grande.tscn" id="1_8amfh"]
+[ext_resource type="PackedScene" uid="uid://chfcwdffuw06i" path="res://assets/cenas/dory.tscn" id="2_i72ge"]
+[ext_resource type="PackedScene" uid="uid://dye15ig8tiv2e" path="res://assets/cenas/plataforma_pequena.tscn" id="3_hlbfx"]
+[ext_resource type="FontFile" uid="uid://ci1txnhhfdj24" path="res://assets/fonts/Kenney Blocks.ttf" id="4_on52a"]
+[ext_resource type="PackedScene" uid="uid://c1kf5b2sb7f0g" path="res://assets/cenas/osso.tscn" id="5_cafcm"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Plataforma_grande" parent="." instance=ExtResource("1_8amfh")]
+
+[node name="Dory" parent="." instance=ExtResource("2_i72ge")]
+position = Vector2(128, 451)
+
+[node name="Plataforma_pequena" parent="." instance=ExtResource("3_hlbfx")]
+position = Vector2(45, 356)
+
+[node name="Plataforma_pequena2" parent="." instance=ExtResource("3_hlbfx")]
+position = Vector2(49, 249)
+
+[node name="Plataforma_pequena3" parent="." instance=ExtResource("3_hlbfx")]
+position = Vector2(219, 305)
+
+[node name="Plataforma_pequena4" parent="." instance=ExtResource("3_hlbfx")]
+position = Vector2(218, 185)
+
+[node name="Plataforma_pequena5" parent="." instance=ExtResource("3_hlbfx")]
+position = Vector2(50, 120)
+
+[node name="osso" parent="." instance=ExtResource("5_cafcm")]
+position = Vector2(17, 337)
+
+[node name="osso2" parent="." instance=ExtResource("5_cafcm")]
+position = Vector2(37, 338)
+
+[node name="osso3" parent="." instance=ExtResource("5_cafcm")]
+position = Vector2(61, 339)
+
+[node name="osso4" parent="." instance=ExtResource("5_cafcm")]
+position = Vector2(183, 166)
+
+[node name="osso5" parent="." instance=ExtResource("5_cafcm")]
+position = Vector2(205, 166)
+
+[node name="osso6" parent="." instance=ExtResource("5_cafcm")]
+position = Vector2(233, 166)
+
+[node name="osso7" parent="." instance=ExtResource("5_cafcm")]
+position = Vector2(254, 164)
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 118.0
+offset_top = 19.0
+offset_right = 158.0
+offset_bottom = 43.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_on52a")
+text = "0"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="osso" to="Dory" method="_on_osso_body_entered"]

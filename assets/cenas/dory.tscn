@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://chfcwdffuw06i"]
+
+[ext_resource type="Texture2D" uid="uid://22i6fvacqmgx" path="res://assets/sprites/dory_stop_1.png" id="1_2nlsp"]
+[ext_resource type="Script" path="res://assets/script/dory.gd" id="1_6arin"]
+[ext_resource type="Texture2D" uid="uid://dwnamm67sra5o" path="res://assets/sprites/dory_stop_2.png" id="2_5wev2"]
+[ext_resource type="Texture2D" uid="uid://ds0nvx3k0bn3p" path="res://assets/sprites/dory_stop_3.png" id="3_07o3u"]
+[ext_resource type="Texture2D" uid="uid://b117gn5repqlj" path="res://assets/sprites/dory_pulo.png" id="4_dctr3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ibaas"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2nlsp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5wev2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_07o3u")
+}],
+"loop": true,
+"name": &"dory_stop",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_dctr3")
+}],
+"loop": true,
+"name": &"dory_up",
+"speed": 5.0
+}]
+
+[node name="Dory" type="CharacterBody2D" groups=["Personagem"]]
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_6arin")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ibaas")
+animation = &"dory_stop"
+autoplay = "dory_stop"
+frame_progress = 0.826354
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-12.5, 32.5, -27.5, -17.5, -20, -47.5, 5, -48.75, 16.25, 6.25, 22.5, 13.75, 23.75, 30, 18.75, 36.25, 23.75, 36.25, 22.5, 30, 23.75, 36.25)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_right = 287
+limit_bottom = 512
+limit_smoothed = true
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
